@@ -26,10 +26,13 @@ def most_active_cookie(log_file,date):
                 count = cookie_counter.get(cookie, 0)+1
                 cookie_counter[cookie] = count
     # retrieve the max time and get all cookies with the max activate time
-    max_val = max(cookie_counter.values())
-    for k, v in cookie_counter.items():
-        if v == max_val:
-            print(k)
+    if len(cookie_counter)>0:
+        max_val = max(cookie_counter.values())
+        for k, v in cookie_counter.items():
+            if v == max_val:
+                print(k)
+    else:
+        print("No active cookies seen in the given day")
 if __name__ == '__main__':
     # parse command line arguments
     parser = argparse.ArgumentParser()
