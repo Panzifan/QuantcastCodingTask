@@ -18,9 +18,9 @@ def most_active_cookie(log_file,date):
             minutes = int(time_difference[4:6])
             # convert local time to utc time according to time difference
             if time_difference[0] == '+':
-                timestamp += timedelta(hours=hours, minutes=minutes)
-            elif time_difference[0] == '-':
                 timestamp -= timedelta(hours=hours, minutes=minutes)
+            elif time_difference[0] == '-':
+                timestamp += timedelta(hours=hours, minutes=minutes)
             if timestamp.date() == date:
                 # count active times for each cookie
                 count = cookie_counter.get(cookie, 0)+1
